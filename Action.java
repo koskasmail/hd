@@ -379,11 +379,19 @@ public class Action
 
       Pinger tp = new Pinger();
 	  int i = 0;
-	  for (i = 1; i <= 18;i++)
+	  
+      System.out.println("please wait");
+	  
+      
+      //todo: make another method with Thread;
+	  for (i = 1; i <= 40;i++)
 	  {
-	     tp.setWinPinger("172.20.130." + i);
+	     tp.setWinPinger("172.16.0." + i);
 	     tp.getWinPinger();
+	     
+	   
 	  }
+	  tp.getPingResult();
    }
 
   

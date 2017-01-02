@@ -26,7 +26,8 @@ public class hd
 	  //
 	  // W E C O M E _ M E S S A G E - first.
 	  //
-		
+	
+	  message.getMsg(3);
       message.getMsg(3);  // \n
 	  message.getMsg(4);  // time
 	  message.getMsg(1);  // msg.Welcome
@@ -43,8 +44,8 @@ public class hd
 	  //Action.Password
 	  //true=with password check
 	  //false = without password check
-	  ac.setEnablePassword(false);
-	  if(ac.getEnablePassword() == true)
+	  ac.setEnablePassword(true);
+	  if(ac.getEnablePassword() == false)
 	  {
 	     ac.setUserPasswd(""); //Generate password
 	     stResult = ac.getUserPasswd(); // Check password-(return 0 = OK)

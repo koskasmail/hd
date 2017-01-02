@@ -2,11 +2,16 @@
 // Pinger.java
 //
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 public class Pinger 
 {
    public String StHostIp="";
+   private ArrayList<String> ArrPingResult = new ArrayList<>();
+   
 
    
    //
@@ -31,7 +36,7 @@ public class Pinger
          String line;
            
          boolean tfResult = false;
-           
+               
          while ((line = br.readLine()) != null) 
          {
         	 if (line.toString().matches(".*100% loss.*") == true)
@@ -40,13 +45,24 @@ public class Pinger
             }             
          }
            
-         //show Result
-         if (tfResult == true)
-         {
-            System.out.println(host + " [NOT-OK]");
-         }
-         else
-            System.out.println(host + " [OK]");                        
+//         //show Result
+//         if (tfResult == true)
+//         {
+//            System.out.println(host + " [NOT-OK]");
+//         }
+//         else
+//            System.out.println(host + " [OK]");
+         
+         
+       if (tfResult != true)
+       {
+       //   System.out.println(host + " >>> [OK]");   	   
+          ArrPingResult.add(host);
+       }
+       
+	   System.out.print(".");
+         
+         
       } //try
       catch (IOException e) 
       {
@@ -101,6 +117,20 @@ public class Pinger
       }
 
        return "Ok";
-   }   
+   }
+   
+   
+   public void getPingResult()
+   {
+	   int index = 0;
+	   
+	   System.out.println("\n \r \n \r**[Output]** \n**-------** \n");
+	   
+	   for (String value : ArrPingResult) {
+		   index++;
+		   System.out.println(index + " " + value);
+	   }
+   }
+   
 }
 
